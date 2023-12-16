@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoProgra2.TodoListPage"
+             Title="ToDo">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OnItemAdded" Text="Agregar Tarea">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android,WinUI" Value="plus.png"/>
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="20,5,5,5" HorizontalOptions="FillAndExpand"
+                                 Orientation="Horizontal"                                 
+                                 BackgroundColor="Blue">
+                        <Label 
+                            Margin="15,15,15,15"
+                            HorizontalOptions="StartAndExpand" 
+                            Text="{Binding Name}"
+                            TextColor="White"/>
+                        <Image 
+                            Margin="5,5,5,5"
+                            HorizontalOptions="End" 
+                            IsVisible="{Binding Done}"
+                            Source="check.jpg"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
