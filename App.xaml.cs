@@ -6,7 +6,12 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new TodoListPage())
+            {
+                BarTextColor = Color.FromRgb(255, 255, 255),
+                BarBackgroundColor = Color.FromRgb(12, 143, 208)
+
+            };
         }
     }
 }
